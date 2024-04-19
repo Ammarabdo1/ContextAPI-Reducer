@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import {React ,createContext , useState}from 'react'
+import A from './A'
+import Reducer from './Reducer'
+import './App.css'
+export const UsedContext =  createContext()
 
-function App() {
+const App = () => {
+  const [Jop , setJop] = useState('Frontend')
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <UsedContext.Provider value= {Jop}>
+        <A/>
+      </UsedContext.Provider>
+
+      <Reducer/>
+
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
